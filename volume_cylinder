@@ -1,0 +1,39 @@
+import java.util.Scanner;
+/**
+ * @author Tajhna
+ *
+ */
+   
+public class Volume_Cyclinder {
+	  
+	  
+		public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			   
+			   
+			   double pi;
+			   double volume;
+			  
+			Scanner sc= new Scanner(System.in);
+			
+			System.out.println("Enter the radius");
+			double radius= sc.nextDouble();
+			
+			System.out.println("Enter the height");
+			double height = sc.nextDouble();
+			
+			pi = 3.147;
+			//Compute volume of cylinder
+			volume = radius * radius * pi* height; 
+			
+			System.out.println("The volume of the cylinder is" + " " + volume);
+			
+		   sc.close();
+			
+			
+			
+			 
+
+	}
+
+}
