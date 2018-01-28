@@ -1,3 +1,6 @@
+
+
+
 /**
  * 
  */
@@ -49,3 +52,46 @@ public class Hours_Worked {
 	}
 
 }
+
+
+
+
+
+//double hrs_worked= Calculate_Salary(hrs);
+		 
+		/* System.out.println("The total hours worked is " + hrs_worked );
+		 
+		 double total = total_hrs(hrs);
+		 
+		 
+		 System.out.println("The hours worked is " + total);
+		 
+		 hrs.close();
+		 	 
+			
+	
+	}
+	//function used to calculate salary
+	
+    public static double Calculate_Salary(Scanner hrs) {
+    	
+    	System.out.print("Enter the number of days worked for the week");
+	          int days = hrs.nextInt();
+	 	   
+	    System.out.print("Enter the number of hours worked each day");
+	 		        
+	          float hours = hrs.nextFloat();
+	 	        	
+	                   
+	         return (days * hours);
+	          
+	
+	}
+    
+    public static double total_hrs(Scanner hrs)
+    {
+    	int days = hrs.nextInt();
+    	 float hours = hrs.nextFloat() ;
+    	
+    	 return (days * hours)*2;
+    }*/
