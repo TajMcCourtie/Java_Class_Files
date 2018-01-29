@@ -1,0 +1,65 @@
+/**
+ * 
+ */
+
+/**
+ * @author Tajhna McCourtie
+ * Instructor: Jodie Smith
+ * Date: 258/01/2018
+ * Description: Calculating and displaying employee's salaries
+ * 
+ *
+ */
+import java.util.Scanner;
+
+public class Hours_Worked {
+
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+			 
+		 Scanner hrs = new Scanner(System.in);
+		 
+		 
+		 for(int i = 0; i <2; i++)
+		 {
+		 System.out.println("Enter the number of days worked for the week");
+          double days = (hrs.nextDouble());
+          
+             double total_hrs= 0;
+             double TotalHrs = 0;
+          
+              for(int j = 0; j < days; j++) 
+              {
+            	  
+            	  System.out.println("Enter the number of hours worked each day");
+                  double hours = hrs.nextDouble();
+                 
+                                    
+                  if(hours > 8) 
+                  {
+                	                	  
+                	  total_hrs = total_hrs + 8;
+                	  
+                  }
+                  else
+                  {
+                	  total_hrs = total_hrs + hours;
+                  }
+              
+              }
+              
+              TotalHrs = total_hrs * days;
+         
+              System.out.println("The total hours worked for employee " + TotalHrs );
+		 }
+       	 
+		  
+		  
+		
+}
+	
+       
+}
