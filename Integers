@@ -1,0 +1,55 @@
+/**
+ * 
+ */
+
+/**
+ * @author Tajhna
+ *Instructor: Jodie Smith
+ * Date: 258/01/2018
+ * Description: Accepting number of integer values from user and displaying the largest one and sum of values
+ */
+import java.util.Scanner;
+
+public class Integer_values {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        
+		int num = 0;
+		int sum = 0;
+		int num_val= 0;
+		int Lnum = num_val;
+		
+		Scanner val = new Scanner(System.in);
+		
+		System.out.println("Please enter the number of integers you want");
+		num = val.nextInt();
+		
+		     for(int i= 0; i<num; i++)
+		     {
+		        System.out.println("Please enter a value");
+		
+		        num_val = val.nextInt();
+		
+		        sum += num_val;
+		        
+		        if(num_val > Lnum) {
+		        	
+		        	Lnum = num_val;
+		        	
+		        }
+		
+		      }
+		
+		         System.out.println("The sum of the total integers entered is " + sum  + " and the largest integer is " + Lnum);
+		
+				
+	          val.close();
+
+
+}
+	
+}
