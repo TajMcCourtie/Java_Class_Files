@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class invoice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner input = new Scanner(System.in);
+		
+		double subTotal = 0.0;
+		double cost = 0.0;
+		double tax = 0.08;
+		double taxes = 0.00;
+		double tip = 0.15;
+		double tips = 0.00;
+		double total = 0.00;
+				
+		
+		System.out.print("How many persons ate? ");
+		int number_persons = input.nextInt();
+		
+		for(int i = 0; i< number_persons; i++)
+		{
+		  System.out.print("Person #"+ (i+1) +": How much did your dinner cost? ");
+		   cost = input.nextDouble();
+            
+		 subTotal += cost; 
+		
+		}
+		
+		
+		taxes = (tax * subTotal);
+		tips = tip * subTotal;
+		total = subTotal + taxes + tips;
+		
+		System.out.printf("\nSubtotal $%.2f \nTax $%.2f\nTips $%.2f\nTotal $%.2f ", subTotal, taxes, tips, total);
+		
+		
+		
+		input.close();
+
+	}
+
+}
