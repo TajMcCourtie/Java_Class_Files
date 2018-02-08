@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Name_E {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+ 
+		  Scanner input = new Scanner(System.in);
+		  
+		  System.out.print("Type your first and last name:");
+          String Fname = input.next();
+          String Lname = input.next(); 
+          
+          
+          System.out.println("Your name is " + " " + Fname.substring(0, 1) + "." + "Diddy " + Lname.toUpperCase() + " " + Fname + "-" + "izzle");
+          
+          
+          input.close();
+	
+	
+	
+	
+	}
+
+}
