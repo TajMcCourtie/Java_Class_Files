@@ -1,0 +1,104 @@
+public class Time {
+
+	private int hours, minutes, seconds;
+	
+	public Time(int h , int m, int s) 
+	{ 
+		hours = h;
+		minutes = m;
+		seconds = s;
+	}
+	
+	public int getHours() 
+	{
+	    return this.hours;
+	}
+		
+	public void setHours(int hours )
+	{
+	     this.hours = hours;
+	}
+	
+		
+	public int getMinutes() {
+		return minutes;
+	}
+
+	public void setMinutes(int minutes) {
+		this.minutes = minutes;
+	}
+
+	public int getSeconds() {
+		return seconds;
+	}
+
+	public void setSeconds(int seconds) {
+		this.seconds = seconds;
+	}
+
+	public void secondElasped()
+	{
+		if (seconds <59)
+		{
+			seconds++;
+		}
+		else
+		{
+			seconds = 0;
+			
+	   }
+		
+		if(minutes <59)
+		{
+			minutes++;
+		}
+		else 
+		{
+			minutes = 0;
+			hours = hours < 12 ? hours+1 :1;
+		}
+	}
+	
+	public void setTime(int h, int m, int s)
+	{
+		if((s>=0) && (s<60) && 
+	       (m>= 0) && (m<60) &&
+	       (h>0) && (h<=12))	
+	       {
+	    	   
+	    	   hours = h;
+	    	   minutes = m;
+	    	   seconds = s;
+	       }
+	}
+	
+	
+
+	
+	
+}
+	
+	
+public class ClockTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        
+		Time swatch = new Time(13, 59, 59);
+		Time seiko = new Time(12, 59, 59);
+		
+		System.out.println("Swatch:"+ swatch.getHours());
+		System.out.println("Seiko: "+ seiko.getHours());
+		
+		swatch.secondElasped();
+		
+		System.out.println("Swatch:"+ swatch.getHours() + " : " + swatch.getMinutes() + " : " + swatch.getSeconds());
+		System.out.println("Seiko: " + seiko.getHours());
+		
+		swatch.setTime(13, 0, 25);
+		
+		System.out.println("Swatch: " + ":" + swatch.getHours() +":" + swatch.getMinutes() + ":" + swatch.getSeconds() );
+		
+	}
+
+}
