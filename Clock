@@ -1,0 +1,149 @@
+public class Clock {
+
+	private int hours, mins, secs;
+	private String time;
+	
+	public Clock (int h)
+	{
+		hours = h;
+	}
+	
+	public Clock(int h, int m, int s, String t)
+	{
+		hours = h;
+		mins = m;
+		secs = s;
+		time = t;
+		
+	}
+	
+	public int getHours()
+	{
+		return this.hours;
+	}
+	
+	public void setHours(int hours)
+	{
+		this.hours = hours;
+	}
+
+	public int getMinutes()
+	{
+		return this.mins;
+	}
+	
+	public void setMinutes(int mins)
+	{
+		this.mins = mins;
+	}
+	
+	public int getSeconds()
+	{
+		return this.secs;
+	}
+	
+	public void setSeconds(int secs)
+	{
+		this.secs = secs;
+	}
+	
+	public String getTime()
+	{
+		return this.time;
+	}
+	
+	public void setTime(String time)
+	{
+		 this.time = time;
+	}
+	
+	public void secondElasped()
+
+	{
+
+		if (secs <59)
+
+		{
+
+			secs++;
+
+		}
+
+		else
+
+		{
+			secs = 0;
+		
+
+	   }
+	
+
+		if(mins <59)
+
+		{
+
+			mins++;
+
+		}
+
+		else 
+
+		{
+
+			mins = 0;
+
+			hours = hours < 12 ? hours+1 :1;
+
+		}
+
+	}
+	
+	public String Time_of_Day(String time, int hours)
+	{
+			
+	   String time_of_day = " " ;
+		
+		switch(time){
+		
+		case "am":
+						
+			if(hours >=6 && hours <= 12)
+			{
+				time_of_day = "Morning";
+			}
+			else if(hours <6)
+			{
+				time_of_day = "Morning";
+			}
+			
+			break; 
+			
+		case "pm":
+			
+				 if(hours == 12)
+				{
+					time_of_day = "Noon";
+				}
+			
+				 else if(hours >= 1 && hours <=3)
+				 {
+					
+				   time_of_day = "Afternoon";
+			     }
+				 			
+	      		 else if(hours >=4 && hours <= 7)
+	      		{
+	     			time_of_day = "Evening";
+	     		}
+				
+	      		 else if (hours >= 8 && hours <= 12)
+		       {
+			         time_of_day = "Night";
+			
+		       }
+		       
+	      
+		}
+		return time_of_day;
+	}
+}
