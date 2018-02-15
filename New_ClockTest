@@ -1,0 +1,45 @@
+public class ClockTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        
+		Time swatch = new Time(13, 59, 59);
+		Time seiko = new Time(12, 59, 59);
+		
+		System.out.println("Swatch:"+ swatch.getHours());
+		System.out.println("Seiko: "+ seiko.getHours());
+		
+		swatch.secondElasped();
+		
+		System.out.println("Swatch:"+ swatch.getHours() + " : " + swatch.getMinutes() + " : " + swatch.getSeconds());
+		System.out.println("Seiko: " + seiko.getHours());
+		
+		swatch.setTime(13, 0, 25);
+		
+		System.out.println("Swatch: " + ":" + swatch.getHours() +":" + swatch.getMinutes() + ":" + swatch.getSeconds() );
+		
+		
+		
+		Midnight time = new Midnight();
+		
+		Time myTime = new Time(1,2,3);
+		
+		time.setMidnight(myTime);
+		
+		System.out.println("myTime:" + myTime.getHours() + ":" + myTime.getMinutes() + ":" + myTime.getSeconds());
+		
+		
+		Midnight seconds = new Midnight();
+		
+		Time mySeconds = new Time(12,1,1);
+		
+		//seconds.setMidnight(mySeconds);
+		
+		//seconds.setVariables(mySeconds);
+		
+		seconds.secondElasped(mySeconds);
+		
+	System.out.println("mySeconds:" + mySeconds.getHours() + ":" + mySeconds.getMinutes() + ":" + mySeconds.getSeconds());
+		
+	}
+}
