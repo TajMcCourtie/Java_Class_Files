@@ -1,0 +1,49 @@
+import javax.swing.JOptionPane;
+
+public class Clock_Time_Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Clock time= new Clock();
+		//Clock time_day = new Clock(7, 5, 8);
+		
+		Clock clock;
+		//Clock clock1;
+				
+		String h; 
+		String m;
+		String s;
+				
+		
+		int $hour;
+		int $min;
+		int $secs;
+		
+	
+		h = JOptionPane.showInputDialog(null, "Enter the Hour");
+		$hour = Integer.parseInt(h);
+		
+		m = JOptionPane.showInputDialog("Enter the Minutes");
+		$min = Integer.parseInt(m);
+		
+		s = JOptionPane.showInputDialog("Enter the Seconds");
+	    $secs = Integer.parseInt(s);
+	    
+	    String $time_of_day = JOptionPane.showInputDialog("Enter the time of day");
+	    
+		
+		
+	   clock = new Clock ($hour, $min, $secs, $time_of_day);
+	      
+		
+		JOptionPane.showMessageDialog(null,"The time is "+ clock.getHours()  + ":" + clock.getMinutes() + ":"+ clock.getSeconds() + " " + clock.getTime());
+				
+	    JOptionPane.showMessageDialog(null, clock.Time_of_Day($time_of_day, $hour));
+		
+
+		
+	}
+
+	
+}
