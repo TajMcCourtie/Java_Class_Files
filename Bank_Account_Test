@@ -1,0 +1,80 @@
+import javax.swing.JOptionPane;
+import javax.swing.*;
+
+public class Bank_Account_Test {
+	public static final String[] options = {"Deposit", "Withdraw", "Transfer"};
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		BankAccount aliceAcc = new BankAccount(1398723);
+		BankAccount bobAcc = new BankAccount(1978394);
+		
+		aliceAcc.deposit(900);
+		aliceAcc.transfer(700, bobAcc);
+		
+        System.out.println("Alice's balance is: " + aliceAcc.getBalance() );
+        System.out.println("Bob's balance is: " + bobAcc.getBalance());
+        
+        
+        String acc_num = " ";
+        String deposit;
+        String withdraw;
+        String transfer;
+        
+        double account_number; 
+        double deposit_amount;
+        double withdraw_amount;
+        double transfer_amount;
+        
+        
+        JFrame frame = new JFrame();
+        String Account_Options = (String) JOptionPane.showInputDialog(frame, "Please select an option", "Accounts Options",
+        		                                                      JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+               
+        
+        acc_num = JOptionPane.showInputDialog("Please enter Account Number");
+        account_number = Double.parseDouble(acc_num);
+          
+        if(account_number == aliceAcc.getAccount_Number())
+        {
+        	JOptionPane.showMessageDialog(null, "The Account Number entered is correct");
+        	
+        	 deposit = JOptionPane.showInputDialog("Please enter the Deposit Amount");
+             deposit_amount = Double.parseDouble(deposit);
+             
+             withdraw = JOptionPane.showInputDialog("Please enter the Withdraw Amount");
+             withdraw_amount = Double.parseDouble(withdraw);
+             
+             transfer	= JOptionPane.showInputDialog("Please enter the Tranfer Amount");
+             transfer_amount = Double.parseDouble(transfer);
+        }
+        else 
+        {
+        	JOptionPane.showMessageDialog(null, "The Account Number entered is incorrect");
+        }
+        
+        
+       
+        
+               	
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+	}
+
+}
