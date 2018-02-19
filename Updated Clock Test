@@ -1,0 +1,22 @@
+public class Clock_Time_Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		 Clock time_day = new Clock(7, 50, 47, "am");
+		 
+		 Clock Time_of_Day = new Clock (12,10,15,"pm");
+		 
+		 Clock day = new Clock(11, 14, 10, "am");
+		 
+      time_day.Display_Time_Format();
+		 System.out.println("===========================================\n");
+		 
+		 Time_of_Day.Display_Time_Format();
+		 System.out.println("===========================================\n");
+		 
+		 day.Display_Time_Format();
+		 System.out.println("===========================================\n");
+		 
+		 time_day.Get_System_Time();
