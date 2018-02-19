@@ -32,7 +32,8 @@ public class Bank_Account_Test {
         String Account_Options = (String) JOptionPane.showInputDialog(frame, "Please select an option", "Accounts Options",
         		                                                      JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                
-        
+         JComboBox optionList = new JComboBox(options);
+	 
         acc_num = JOptionPane.showInputDialog("Please enter Account Number");
         account_number = Double.parseDouble(acc_num);
           
