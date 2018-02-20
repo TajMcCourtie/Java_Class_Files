@@ -1,0 +1,209 @@
+import javax.swing.JOptionPane;
+
+		import javax.swing.*;
+
+
+
+		public class BankAccountTest {
+			
+			private static BankAccount aliceAcc = new BankAccount(1398723);
+			private static BankAccount bobAcc = new BankAccount(1978394);
+			
+			public static final String[] options = {"Deposit", "Withdraw", "Transfer"};
+			
+			
+			public static void main(String[] args) {
+
+				// TODO Auto-generated method stub
+				//aliceAcc.deposit(900);
+				//aliceAcc.transfer(700, bobAcc);
+		
+
+		        //System.out.println("Alice's balance is: " + aliceAcc.getBalance() );
+				// System.out.println("Bob's balance is: " + bobAcc.getBalance());
+
+		                
+				//Asking user for account number
+		       double account_number = Double.parseDouble(JOptionPane.showInputDialog("Please enter Account Number"));
+
+		       if(Verify_Account_Number(account_number))
+		    	{
+//		    	   true
+		    	   displayAccountOptions(account_number);
+		    	   
+		    	   
+		    	}
+		        
+		        
+		        
+		    }
+			
+			/**
+			 * 
+			 * @param account_number
+			 * @return
+			 */
+			public static boolean Verify_Account_Number(double account_number)
+			{
+				boolean isAccount = false;
+				
+				 if(account_number == aliceAcc.getAccountNumber())
+
+			        {
+                         isAccount = true;
+                         JOptionPane.showMessageDialog(null, "The Account Number entered is correct");
+			        } 
+				 else if(account_number == bobAcc.getAccountNumber())
+				 {
+					 isAccount = true;
+					 JOptionPane.showMessageDialog(null, "The Account Number entered is correct");
+				 }
+				 else
+				 {
+					 JOptionPane.showMessageDialog(null, "The Account Number entered is incorrect");
+				 }
+				 return isAccount;
+			}
+			
+						
+			/**
+			 * 
+			 * @param accountNumber
+			 */
+			private static void displayAccountOptions(double accountNumber)
+			{
+				 JFrame frame = new JFrame();
+	                String accountOptions = (String) JOptionPane.showInputDialog(frame, "Please select an option",
+	                		                                                      "Account Options",
+	                		                                                      JOptionPane.INFORMATION_MESSAGE,
+	                		                                                      null, options, options[0]);
+	                              
+	                //Deposit
+	                 if( accountOptions == "Deposit")
+	                 {
+	                	 deposit(accountNumber);
+	                 }
+	                 
+	                 //Withdrawal
+	                 if(accountOptions == "Withdraw")
+	                 {
+	                	 withdrawal(accountNumber);
+	                 }	
+	                 //Transfer
+	                 if(accountOptions == "Transfer")
+	                 {
+			        	transfer(accountNumber);    
+	                 }
+			}
+
+			/**
+			 * 
+			 * @param accountNumber
+			 */
+			private static void deposit(double accountNumber)
+			{
+				if(accountNumber == aliceAcc.getAccountNumber())
+                {
+               	 String deposit = JOptionPane.showInputDialog("Please enter the Deposit Amount");
+
+		             double deposit_amount = Double.parseDouble(deposit);
+		             aliceAcc.deposit(deposit_amount);
+		             String str = String.format("Your Account Balance is: $%.2f",aliceAcc.getBalance() );
+		             JOptionPane.showMessageDialog(null, str );
+
+                }
+                else if(accountNumber == bobAcc.getAccountNumber())
+                {
+               	 String deposit = JOptionPane.showInputDialog("Please enter the Deposit Amount");
+
+		             double deposit_amount = Double.parseDouble(deposit);
+		             
+		             bobAcc.deposit(deposit_amount);
+		             JOptionPane.showMessageDialog(null, String.format("Your Account Balance is: $%.2f", bobAcc.getBalance()));
+                }
+			}
+			
+			/**
+			 * 
+			 * @param accountNumber
+			 */
+			private static void withdrawal(double accountNumber)
+			{
+				int response; 
+				double withdralAmount;
+				
+				switch(Integer.toString((int)accountNumber))
+				{
+				case "1398723"://Alice's Account
+					if(aliceAcc.getBalance() == 0)
+	               	 {
+	               		 JOptionPane.showMessageDialog(null, "Insufficient funds", "Warning", JOptionPane.WARNING_MESSAGE);
+	               		 response = JOptionPane.showConfirmDialog(null, "Do you want to perform a different transaction","", JOptionPane.OK_CANCEL_OPTION);
+	               		 
+	               		 if(response == 0)
+	               			 displayAccountOptions(accountNumber); 
+	               	 }
+	               	 else
+	               	 {
+	                   	withdralAmount = Double.parseDouble(JOptionPane.showInputDialog("Please enter the Withdrawal Amount"));
+	                   	
+	                   	aliceAcc.withdraw(withdralAmount);
+	                   	JOptionPane.showMessageDialog(null, "Your Account Balance is: $" + aliceAcc.getBalance());
+	               	 }
+					break;
+					
+				case "1978394"://Bob's Account
+					if(bobAcc.getBalance() == 0)
+	              	 {
+	              		 JOptionPane.showMessageDialog(null, "Insufficient funds", "Warning", JOptionPane.WARNING_MESSAGE);
+	              		 response = JOptionPane.showConfirmDialog(null, "Do you want to perform a different transaction","", JOptionPane.OK_CANCEL_OPTION);
+	               		 
+	               		 if(response == 0)
+	               			 displayAccountOptions(accountNumber); 
+	              	 }
+	              	 else
+	              	 {
+	                  	 withdralAmount = Double.parseDouble(JOptionPane.showInputDialog("Please enter the Withdrawal Amount"));
+	                  	
+	                  	 bobAcc.withdraw(withdralAmount);
+	                  	 JOptionPane.showMessageDialog(null, "Your Account Balance is: $" + bobAcc.getBalance());
+	                }
+					break;
+				
+				}
+				
+			}
+			
+			/**
+			 * Transfer
+			 * @param accountnumber
+			 */
+			private static void transfer(double accountNumber) {
+				
+				if(accountNumber == aliceAcc.getAccountNumber()) {
+					
+	              double transfer_amount = Double.parseDouble(JOptionPane.showInputDialog("Please enter the Transfer Amount"));
+	              
+	              aliceAcc.transfer(transfer_amount, bobAcc);
+	              JOptionPane.showMessageDialog(null, "Your Account Balance is: $" + aliceAcc.getBalance());
+				}
+				else if(accountNumber == bobAcc.getAccountNumber()) 
+	             {   //asking for transfer amount
+	            	 String transfer = JOptionPane.showInputDialog("Please enter the Transfer Amount");
+
+		              double transfer_amount = Double.parseDouble(transfer);
+		              
+		              //asking for the account number to transfer the money to
+		              String transfer_amt_acc = JOptionPane.showInputDialog("Please enter the Account number for transfer");
+		              double  transfer_acc = Double.parseDouble(transfer_amt_acc);
+		              
+		              aliceAcc.transfer(transfer_amount, bobAcc);
+		              
+	            	 
+	            	 JOptionPane.showMessageDialog(null, "Your Account Balance is: $" + bobAcc.getBalance());
+	             }
+		}
+		
+			
+		        
+	}
