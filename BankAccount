@@ -7,15 +7,15 @@ public class BankAccount {
 	public BankAccount(long accountNumber)
 	{
 		this.accountNumber = accountNumber;
-		balance = 0;
+		balance = 5000;
 	}
-	public long getAccount_Number()
+	public long getAccountNumber()
 	{
 		return this.accountNumber;
 	}
-	public void setAccount_Number( long account_Number)
+	public void setAccountNumber( long accountNumber)
 	{
-		this.accountNumber = account_Number;
+		this.accountNumber = accountNumber;
 	}
 	
 	public double getBalance()
@@ -39,5 +39,3 @@ public class BankAccount {
 		targetAccount.deposit(amount);
 	}
 }
-
-
