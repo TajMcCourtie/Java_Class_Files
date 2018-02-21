@@ -1,0 +1,89 @@
+public class BankAccount {
+	
+	private long accountNumber;
+	private double balance;
+	private static int numberOfAccounts = 0;
+	final static int DAYS_IN_YEAR = 365;
+	
+	
+	public BankAccount()
+	{
+		this.accountNumber = ++numberOfAccounts;
+		this.balance =0;
+	}
+	public static int getNumberOfAccounts()
+	{
+		return numberOfAccounts;
+	}
+	public void earnDailyInterest(int days)
+	{
+		double rate = 1+ interestRate()/DAYS_IN_YEAR;
+		for(int j=0; j<days; j++)
+			balance *= rate;
+	}
+			
+	private double interestRate()
+	{
+		return (balance>100000)? 0.06 :0.05;
+	}
+	
+	public BankAccount(long accountNumber)
+	{
+		this.accountNumber = accountNumber;
+		balance = 0;
+	}
+	public long getAccount_Number()
+	{
+		return this.accountNumber;
+	}
+	public void setAccount_Number( long account_Number)
+	{
+		this.accountNumber = account_Number;
+	}
+	
+	public double getBalance()
+	{
+		return balance;
+		
+	}
+		
+	public void deposit(double amount)
+	{
+		balance += amount;
+	}
+	
+	public void withdraw(double amount)
+	{
+		balance -=amount;
+	}
+	public void transfer(double amount, BankAccount targetAccount)
+	{
+		withdraw(amount);
+		targetAccount.deposit(amount);
+	}
+}
+
+
+public class Bank_Account_Test {
+	public static final String[] options = {"Deposit", "Withdraw", "Transfer"};
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		BankAccount aliceAcc = new BankAccount(1398723);
+		BankAccount bobAcc = new BankAccount(1978394);
+		
+		aliceAcc.deposit(900);
+		aliceAcc.transfer(700, bobAcc);
+		
+        System.out.println("Alice's balance is: " + aliceAcc.getBalance() );
+        System.out.println("Bob's balance is: " + bobAcc.getBalance());
+        
+         BankAccount numAcc = new BankAccount();
+       System.out.println("The number of accounts created are:" + BankAccount.getNumberOfAccounts());
+       
+       
+        numAcc.earnDailyInterest(2);
+        System.out.println("The number of accounts created are:" + numAcc.getBalance());
+       
+        
