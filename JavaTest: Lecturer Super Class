@@ -1,0 +1,95 @@
+public class Lecturer {
+
+	private String firstName;
+	private String lastName;
+	private int TRN;
+	private String status;
+	private String dateEmployed;
+	private int age;
+	private String address;
+	
+	public Lecturer()
+	{
+		
+	}
+	public String getFirstName()
+	{
+		return this.firstName;
+	}
+	public void setFirstName(String firstName)
+	{
+		this.firstName = firstName;
+	}
+	public String getLastName()
+	{
+		return this.lastName;
+	}
+	public void setLastName(String lastName)
+	{
+		this.lastName = lastName;
+	}
+	public int getTRN()
+	{
+		return this.TRN;
+	}
+	public void setTRN(int TRN)
+	{
+		this.TRN = TRN;
+	}
+    public String getStatus()
+    {
+    	return this.status;
+    }
+    public void setStatus(String status)
+    {
+    	this.status = status;
+    }
+    public String getDateEmployed()
+    {
+    	return this.dateEmployed;
+    }
+    public void setDateEmployed(String dateEmployed)
+    {
+    	this.dateEmployed = dateEmployed;
+    }
+    public int getAge()
+    {
+    	return this.age;
+    }
+    public void setAge(int age)
+    {
+    	this.age = age;
+    }
+    public String getAddress()
+    {
+    	return this.address;
+    }
+    public void setAddress(String address)
+    {
+    	this.address = address;
+    }
+    
+    public String displayStatus(int age, String status)
+    {
+    	if(age >= 18 && age <= 62 )
+    	{
+    		status = "Employed";
+    	}
+       else if(age == 63)
+    	{
+    		status = "You are eligible for retirement";
+    	}
+    	else if(age >= 65)
+    	{
+    		status = "Resigned & Retired";
+    	}
+    	return status;
+    }
+    
+    
+    public void displayInformation()
+    {
+    	System.out.println("The lecturer's information is as follows:" + getFirstName() + getLastName() + 
+    			            getTRN() + getStatus() + getDateEmployed() + getAge() + getAddress());
+    }
+}
