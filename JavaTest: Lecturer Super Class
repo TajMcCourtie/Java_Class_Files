@@ -69,23 +69,22 @@ public class Lecturer {
     	this.address = address;
     }
     
-    public String displayStatus(int age, String status)
+    public void display(int age)
     {
-    	if(age >= 18 && age <= 62 )
+    	if(age <= 62 && age < 65 )
     	{
-    		status = "Employed";
+    		System.out.println("You are eligible for retirement");
     	}
-       else if(age == 63)
-    	{
-    		status = "You are eligible for retirement";
-    	}
-    	else if(age >= 65)
-    	{
-    		status = "Resigned & Retired";
-    	}
-    	return status;
+       
     }
     
+    public void calculateSalary()
+    {
+       if (hoursWorked 
+    }
+    public void calculateOvertime()
+   {
+   }
     
     public void displayInformation()
     {
