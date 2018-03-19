@@ -1,0 +1,8 @@
+System.out.println("Inserting records into the table.....");
+			stmt = conn.createStatement();
+			
+			String sql = "INSERT INTO Registration" + "VALUES(100, 'ZARA', 'Ali', 18)";
+			stmt.executeUpdate(sql);
+			
+			sql = "INSERT INTO Registration" + "VALUES(101, 'Mahnaz', 'Fatma', 25)";
+			stmt.executeUpdate(sql);
