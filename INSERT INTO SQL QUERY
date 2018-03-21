@@ -6,3 +6,25 @@ System.out.println("Inserting records into the table.....");
 			
 			sql = "INSERT INTO Registration" + "VALUES(101, 'Mahnaz', 'Fatma', 25)";
 			stmt.executeUpdate(sql);
+			
+			//Update the age of an employee
+			String sql = "UPDATE test set age=? WHERE id=?";
+			stmt = conn.prepareStatement(sql);
+			
+			//Bind values into the parameters
+			stmt.setInt(1, 30); //This would set age
+			stmt.setInt(2, 35); //This would set ID
+			
+			//Let us update age of the record with ID =35
+			int rows = stmt.executeUpdate();
+			System.out.println("Rows impacted: " + rows);
+			
+			//challenge Delete a record from the test database
+				
+			String sql = "DELETE FROM person WHERE userid = ?";
+			stmt= conn.preparedStatement(sql);
+			
+			stmt.setString(1, userid);
+			stmt.executeUpdate();
+			
+			
