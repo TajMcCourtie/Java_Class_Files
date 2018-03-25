@@ -1,0 +1,45 @@
+JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				 final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+				 final String DB_URL = "jdbc:mysql://localhost/user";
+				
+				//Database Credentials
+				 final String USERNAME = "root";
+				 final String PASSWORD = "root";
+				Statement stmt = null;				 
+				 String uname = usernameField.getText();
+				 String password = passwordField.getText();
+				
+				 try
+				 {
+					Class.forName(JDBC_DRIVER);
+					Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD); 
+					
+					//testing connection
+					JOptionPane.showMessageDialog(null,"Connection is Successful");
+				     
+					//Creating query
+					
+					  String query  = "SELECT * FROM user WHERE uname = ? and password = ?";
+					 stmt = conn.prepareStatement(query);
+					 stmt.setString(1, uname);
+					 stmt.setString(2, password);
+					 
+					
+			
+			    }
+			    catch(SQLException se)
+				 {
+				    se.printStackTrace();
+						 
+		         } 
+				 catch (ClassNotFoundException e)
+				 {
+				// TODO Auto-generated catch block
+				  e.printStackTrace();
+			     }
+			
+			}
+		});	
