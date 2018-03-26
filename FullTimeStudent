@@ -1,0 +1,53 @@
+public class FullTimeStudent extends Student{
+
+	private double tuition;
+	private final double COSTOFCOURSE = 10000f;
+	private final double NUMBEROFCOURSES = 10;
+	private double creditHours = 0;
+	private final double MINIMUMCREDITHOURS = 30;
+	
+	
+	public FullTimeStudent(String firstName, String lastName, String TRN, String extracurricular, 
+			               String dateEnrolled, int age, String address, double creditHours)
+	{
+		super(firstName, lastName, TRN, extracurricular, dateEnrolled, age, address);
+		this.creditHours = creditHours;
+	}
+	
+	private double getCreditHours()
+	{
+		return this.creditHours;
+	}
+	private void setCreditHours(double creditHours)
+	{
+		this.creditHours = creditHours;
+	}
+	
+	private void calculateTutition()
+	{
+		double tutition = 0;
+		if(creditHours == MINIMUMCREDITHOURS)
+		{
+		 tuition = COSTOFCOURSE * NUMBEROFCOURSES;
+		}
+		else if(creditHours > MINIMUMCREDITHOURS)
+		{
+		double finalTutition = tutition + getExtraTuitionCost();
+		}
+		
+		
+							
+	}
+	
+	private double getExtraTuitionCost()
+	{
+		double tutition = 0;
+		if(creditHours > MINIMUMCREDITHOURS)
+		{
+		 tuition = (creditHours - MINIMUMCREDITHOURS) * COSTOFCOURSE;
+		}	
+		
+		return tutition;
+	}
+	
+}
